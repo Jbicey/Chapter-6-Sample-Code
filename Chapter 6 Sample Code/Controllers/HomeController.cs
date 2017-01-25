@@ -10,6 +10,7 @@ namespace Chapter_6_Sample_Code.Controllers
 {
     public class HomeController : Controller
     {
+        private IValueCalculator calc;
         private Product[] products =
         {
             new Product {Name = "Kayak", Category = "Watersports", Price = 275M },
@@ -17,6 +18,10 @@ namespace Chapter_6_Sample_Code.Controllers
             new Product {Name = "Soccer Ball", Category = "Soccer", Price = 19.50M },
             new Product {Name = "Corner Flag", Category = "Soccer", Price = 34.95M },
         };
+        public HomeController(IValueCalculator calcParam, IValueCalculator calc2)
+        {
+            calc = calcParam;
+        }
         public ActionResult Index()
         {
             IKernel ninjectKernel = new StandardKernel();

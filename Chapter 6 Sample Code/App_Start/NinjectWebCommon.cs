@@ -53,6 +53,8 @@ namespace Chapter_6_Sample_Code.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            System.Web.Mvc.DependencyResolver.SetResolver(new
+                Chapter_6_Sample_Code.Infrastructure.NinjectDependencyResolver(kernel));
         }        
     }
 }

@@ -9,9 +9,17 @@ namespace Chapter_6_Sample_Code.Models
 {
     public class LinqValueCalculator :IValueCalculator 
     {
+        private IDiscountHelper discounter;
+        private static int counter = 0;
+
+        public LinqValueCalculator(IDiscountHelper discountParam)
+        {
+            dicounter = dicountParam;
+            System.Diagnostics.Debug.WriteLine(string.Format("Instance {0} created", ++counter));
+        }
         public decimal ValueProducts (IEnumerable<Product> products)
         {
-            return products.Sum(p => p.Price);
+            return discounter.ApplyDiscount(products.Sum(p => p.Price));
         }      
     }
 }
