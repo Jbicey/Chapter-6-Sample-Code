@@ -14,7 +14,7 @@ namespace Chapter_6_Sample_Code.Models
 
         public LinqValueCalculator(IDiscountHelper discountParam)
         {
-            dicounter = dicountParam;
+            discounter = discountParam;
             System.Diagnostics.Debug.WriteLine(string.Format("Instance {0} created", ++counter));
         }
         public decimal ValueProducts (IEnumerable<Product> products)
